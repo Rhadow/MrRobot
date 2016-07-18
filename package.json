@@ -1,0 +1,22 @@
+{
+  "name": "mr-robot",
+  "version": "0.0.1",
+  "description": "A facebook messenger bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rhadow/MrRobot.git"
+  },
+  "author": "Rhadow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rhadow/MrRobot/issues"
+  },
+  "homepage": "https://github.com/Rhadow/MrRobot#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
