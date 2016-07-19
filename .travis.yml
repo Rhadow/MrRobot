@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
+deploy:
+  provider: heroku
+  api_key:
+    secure: g9Bm7Bml0LMEmUegF3mLIlEGzO7JCcbl9RgwohI+25BX7M0mIKLH6o3Tx5vY0Wmaqe3i+hiex9pecRxdqO8o9xZsRxH/S6N+vmUBW5Ab3Wkqqe+d/w/3QRFqpu9uVziacNJrvZVCIOQ/be+AMxoD//ajLClYTy6NIyJuZAT2mhsmSTC+u46mLBF49l9me/nGY5PyDyqbVIF3pkVtL6P87E+DWmDqBrKt55N5knNQ7pGQ342Us7HuPrUobaDq53qQ0eOWcJWZ7pQxoGplqkh1g236Gs4qxMj/y7+BSUY1JR9kmrWRSEfoQXm6WQm7I0yGJ5EjUlFxDXGPl+E9Epaw4sz/I/ZiWEAlfs+zUBeEs58BjzC5sfLpVcGYMAG8FCX9d1QzKf0TekIiXBg51xP9XDhucZfJrR3Wpd/mNkNt4AFu/AkUbmtMxJO8FxNeeS45wnzmxQuYdoY6pMWZG5FfvChADOZCPyyHf6UQa+4LSiiVYLxHriFNWPeN/SPncTsK+Du2bKWAnYRu0TcInKGp2q5eK+hKDjwfwQAC5vQ0hDG4+00zMaJBL4qF1Cf557qAcMZIwjlVb2itGlmDq4TJZZhFaX7jR5wUVjdONkHQ5zAiTafNV9pBlLbnmcPmouK+wUfBEGESIrCi1/M2lHNjV+MaqvBM8Qrwr1osDq0SH64=
+  app: desolate-springs-11198
+  on:
+    repo: Rhadow/MrRobot
