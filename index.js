@@ -4,6 +4,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 const express = require('express');
 const bodyParser = require('body-parser');
+const receivedMessage = require('./functions/receivedMessage');
 const app = express();
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
@@ -24,6 +25,21 @@ app.get('/webhook', (req, res) => {
     } else {
         console.error('Failed validation. Make sure the validation tokens match.');
         res.sendStatus(403);
+    }
+});
+
+app.post('/webhook', (req, res) => {
+    const data = req.body;
+    if (data.object === 'page') {
+        data.entry.forEach((messagingEvent) => {
+            if (messagingEvent.message) {
+                receivedMessage(messagingEvent);
+            } else {
+                console.log(`Webhook received unknown messagingEvent: ${messagingEvent}`);
+            }
+        });
+
+        res.sendStatus(200);
     }
 });
 
