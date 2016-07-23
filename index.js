@@ -31,15 +31,16 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
     const data = req.body;
     if (data.object === 'page') {
-        data.entry.forEach((messagingEvent) => {
-            console.log(messagingEvent);
-            if (messagingEvent.message) {
-                receivedMessage(messagingEvent);
-            } else {
-                console.log(`Webhook received unknown messagingEvent: ${messagingEvent}`);
-            }
+        data.entry.forEach((pageEntry) => {
+            pageEntry.messaging.forEach((messagingEvent) => {
+                console.log(messagingEvent);
+                if (messagingEvent.message) {
+                    receivedMessage(messagingEvent);
+                } else {
+                    console.log(`Webhook received unknown messagingEvent: ${messagingEvent}`);
+                }
+            });
         });
-
         res.sendStatus(200);
     } else {
         res.sendStatus(404);
