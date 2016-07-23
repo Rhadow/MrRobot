@@ -5,6 +5,7 @@ require('isomorphic-fetch');
 const express = require('express');
 const bodyParser = require('body-parser');
 const receivedMessage = require('./functions/receivedMessage');
+const receivedDeliveryConfirmation = require('./functions/receivedDeliveryConfirmation');
 const app = express();
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
 
@@ -35,8 +36,10 @@ app.post('/webhook', (req, res) => {
             pageEntry.messaging.forEach((messagingEvent) => {
                 if (messagingEvent.message) {
                     receivedMessage(messagingEvent);
+                } else if (messagingEvent.delivery) {
+                    receivedDeliveryConfirmation(messagingEvent);
                 } else {
-                    console.log('Webhook received unknown messagingEvent');
+                    console.log('Webhook received unknown messagingEvent:');
                     console.log(messagingEvent);
                 }
             });

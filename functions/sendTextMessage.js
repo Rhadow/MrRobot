@@ -29,7 +29,7 @@ const sendTextMessage = (recipientId, messageText) => {
     }).then((data) => {
         const recipientId = data['recipient_id'];
         const messageId = data['message_id'];
-        console.log(`Successfully sent text message with id ${messageId} to recipient ${recipientId}`);
+        console.log(`Successfully sent message with id ${messageId} to recipient ${recipientId}`);
     }).catch((error) => {
         console.error('request failed', error);
     });
