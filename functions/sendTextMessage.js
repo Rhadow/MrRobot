@@ -10,11 +10,9 @@ const sendTextMessage = (recipientId, messageText) => {
         }
     };
 
-    fetch({
-        uri: CONSTANTS.FB_MESSAGE_API_URL,
-        qs: { access_token: process.env.FB_PAGE_ACCESS_TOKEN },
+    fetch(`${CONSTANTS.FB_MESSAGE_API_URL}?access_token="${process.env.FB_PAGE_ACCESS_TOKEN}"`, {
         method: 'POST',
-        json: messageData
+        body: JSON.stringify(messageData)
     }).then((res) => {
         if (res.status >= 400) {
             console.error('Unable to send message.');
@@ -23,6 +21,7 @@ const sendTextMessage = (recipientId, messageText) => {
             return res.json();
         }
     }).then((data) => {
+        console.log(data);
         const recipientId = data['recipient_id'];
         const messageId = data['message_id'];
         console.log(`Successfully sent text message with id ${messageId} to recipient ${recipientId}`);
