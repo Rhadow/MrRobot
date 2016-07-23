@@ -10,7 +10,7 @@ const sendTextMessage = (recipientId, messageText) => {
         }
     };
 
-    fetch(`${CONSTANTS.FB_MESSAGE_API_URL}?access_token="${process.env.FB_PAGE_ACCESS_TOKEN}"`, {
+    fetch(`${CONSTANTS.FB_MESSAGE_API_URL}?access_token=${process.env.FB_PAGE_ACCESS_TOKEN}`, {
         method: 'POST',
         body: JSON.stringify(messageData)
     }).then((res) => {
