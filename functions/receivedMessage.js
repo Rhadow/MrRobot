@@ -1,3 +1,5 @@
+'use strict';
+
 const sendTextMessage = require('./sendTextMessage');
 
 const receivedMessage = (event) => {

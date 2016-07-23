@@ -1,3 +1,5 @@
+'use strict';
+
 const CONSTANTS = require('../constants/');
 
 const sendTextMessage = (recipientId, messageText) => {
