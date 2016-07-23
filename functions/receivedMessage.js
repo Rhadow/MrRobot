@@ -11,8 +11,7 @@ const receivedMessage = (event) => {
     const messageText = message.text;
     const messageAttachments = message.attachments;
 
-    console.log(`Received message for user ${senderId} and page ${recipientId} at ${timeOfMessage} with message:`);
-    console.log(JSON.stringify(message));
+    console.log(`Received message for user ${senderId} and page ${recipientId} at ${timeOfMessage} with message: ${JSON.stringify(message)}`);
 
     if (messageText) {
         sendTextMessage(senderId, `Echo: ${messageText}`);

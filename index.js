@@ -33,11 +33,11 @@ app.post('/webhook', (req, res) => {
     if (data.object === 'page') {
         data.entry.forEach((pageEntry) => {
             pageEntry.messaging.forEach((messagingEvent) => {
-                console.log(messagingEvent);
                 if (messagingEvent.message) {
                     receivedMessage(messagingEvent);
                 } else {
-                    console.log(`Webhook received unknown messagingEvent: ${messagingEvent}`);
+                    console.log('Webhook received unknown messagingEvent');
+                    console.log(messagingEvent);
                 }
             });
         });
