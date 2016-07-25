@@ -18,7 +18,7 @@ const receivedMessage = (event) => {
         if (messageText === 'set') {
             redisClient.set('some key', 'some val');
             sendTextMessage(senderId, 'redis set!');
-        } else if (messageText === 'set') {
+        } else if (messageText === 'get') {
             redisClient.get('some key', (err, reply) => {
                 sendTextMessage(senderId, `redis says: ${reply.toString()}`);
             });
