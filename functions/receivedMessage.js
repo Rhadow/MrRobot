@@ -1,6 +1,7 @@
 'use strict';
 
 const sendTextMessage = require('./sendTextMessage');
+const redisClient = require('./redisClient').getClient();
 
 const receivedMessage = (event) => {
     const senderId = event.sender.id;
@@ -14,7 +15,16 @@ const receivedMessage = (event) => {
     console.log(`Received message for user ${senderId} and page ${recipientId} at ${new Date(timeOfMessage)} with message: ${JSON.stringify(message)}`);
 
     if (messageText) {
-        sendTextMessage(senderId, `Echo: ${messageText}`);
+        if (messageText === 'set') {
+            redisClient.set('some key', 'some val');
+            sendTextMessage(senderId, 'redis set!');
+        } else if (messageText === 'set') {
+            redisClient.get('some key', (err, reply) => {
+                sendTextMessage(senderId, `redis says: ${reply.toString()}`);
+            });
+        } else {
+            sendTextMessage(senderId, `Echo: ${messageText}`);
+        }
     } else if (messageAttachments) {
         sendTextMessage(senderId, 'Message with attachment received!');
     }

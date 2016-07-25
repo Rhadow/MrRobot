@@ -2,6 +2,7 @@
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+require('./functions/redisClient').createClient();
 const express = require('express');
 const bodyParser = require('body-parser');
 const receivedMessage = require('./functions/receivedMessage');
