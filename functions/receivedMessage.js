@@ -20,11 +20,12 @@ const receivedMessage = (event) => {
             sendTextMessage(senderId, 'redis set!');
         } else if (messageText === 'get') {
             redisClient.get('some key', (err, reply) => {
-                if (err) {
-                    sendTextMessage(senderId, `redis get failed: ${err.toString()}`);
-                } else {
-                    sendTextMessage(senderId, `redis says: ${reply.toString()}`);
-                }
+                console.log(reply);
+                // if (err) {
+                //     sendTextMessage(senderId, `redis get failed: ${err.toString()}`);
+                // } else {
+                //     sendTextMessage(senderId, `redis says: ${reply.toString()}`);
+                // }
             });
         } else if (messageText === 'del') {
             redisClient.del('some key');
