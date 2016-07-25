@@ -22,6 +22,9 @@ const receivedMessage = (event) => {
             redisClient.get('some key', (err, reply) => {
                 sendTextMessage(senderId, `redis says: ${reply.toString()}`);
             });
+        } else if (messageText === 'del') {
+            redisClient.del('some key');
+            sendTextMessage(senderId, 'redis deleted key!');
         } else {
             sendTextMessage(senderId, `Echo: ${messageText}`);
         }
