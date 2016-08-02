@@ -5,4 +5,4 @@ const receivedDeliveryConfirmation = (event) => {
     console.log(`All messages before timestamp ${new Date(delivery.watermark)} is read!`);
 };
 
-module.exports = receivedDeliveryConfirmation;
+export default receivedDeliveryConfirmation;

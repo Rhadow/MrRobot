@@ -1,14 +1,15 @@
 'use strict';
 
 require('es6-promise').polyfill();
-require('isomorphic-fetch');
-require('./functions/redisClient').createClient();
-const express = require('express');
-const bodyParser = require('body-parser');
-const receivedMessage = require('./functions/receivedMessage');
-const receivedDeliveryConfirmation = require('./functions/receivedDeliveryConfirmation');
+import 'isomorphic-fetch';
+import express from 'express';
+import bodyParser from 'body-parser';
+import receivedMessage from './functions/receivedMessage';
+import receivedDeliveryConfirmation from './functions/receivedDeliveryConfirmation';
+import { createDBClient } from './functions/redisClient';
 const app = express();
 const VALIDATION_TOKEN = process.env.VALIDATION_TOKEN;
+createDBClient();
 
 app.set('port', (process.env.PORT || 3000));
 

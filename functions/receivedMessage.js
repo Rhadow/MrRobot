@@ -1,7 +1,8 @@
 'use strict';
 
-const sendTextMessage = require('./sendTextMessage');
-const redisClient = require('./redisClient').getClient();
+import sendTextMessage from './sendTextMessage';
+import { getDBClient } from './redisClient';
+const redisClient = getDBClient();
 
 const receivedMessage = (event) => {
     const senderId = event.sender.id;
@@ -41,4 +42,4 @@ const receivedMessage = (event) => {
     }
 };
 
-module.exports = receivedMessage;
+export default receivedMessage;

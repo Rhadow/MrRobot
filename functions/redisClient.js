@@ -1,11 +1,13 @@
 'use strict';
 
-const redis = require('redis');
+import redis from 'redis';
+const isDevelopment = process.env.NODE_ENV === 'development';
 let client;
 
-module.exports = {
-    getClient: () => client,
-    createClient: () => {
-        client = redis.createClient(process.env.REDIS_URL);
-    }
+export function getDBClient() {
+    return client;
+};
+
+export function createDBClient() {
+    client = isDevelopment ? redis.createClient() : redis.createClient(process.env.REDIS_URL);
 };

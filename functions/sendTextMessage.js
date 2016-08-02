@@ -1,6 +1,6 @@
 'use strict';
 
-const CONSTANTS = require('../constants/');
+import CONSTANTS from '../constants/';
 
 const sendTextMessage = (recipientId, messageText) => {
     const messageData = {
@@ -35,4 +35,4 @@ const sendTextMessage = (recipientId, messageText) => {
     });
 };
 
-module.exports = sendTextMessage;
+export default sendTextMessage;
