@@ -2,9 +2,9 @@
 
 import sendTextMessage from './sendTextMessage';
 import { getDBClient } from './redisClient';
-const redisClient = getDBClient();
 
 const receivedMessage = (event) => {
+    const redisClient = getDBClient();
     const senderId = event.sender.id;
     const recipientId = event.recipient.id;
     const timeOfMessage = event.timestamp;

@@ -40,4 +40,4 @@ jspm_packages
 .env
 
 # Redis
-.rdb
+*.rdb
