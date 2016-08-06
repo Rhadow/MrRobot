@@ -9,6 +9,5 @@ export function getDBClient() {
 };
 
 export function createDBClient() {
-    console.log('created');
     client = isDevelopment ? redis.createClient() : redis.createClient(process.env.REDIS_URL);
 };

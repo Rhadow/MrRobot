@@ -12,7 +12,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "babel-node index.js",
+      "command": "nodemon --exec babel-node -- index.js",
       "env": {
         "NODE_ENV": "development"
       }
@@ -29,16 +29,17 @@
   },
   "homepage": "https://github.com/Rhadow/MrRobot#readme",
   "dependencies": {
+    "ava": "^0.15.2",
     "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "better-npm-run": "0.0.10",
     "body-parser": "^1.15.2",
     "es6-promise": "^3.2.1",
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
-    "redis": "^2.6.2",
-    "ava": "^0.15.2",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "better-npm-run": "0.0.10"
+    "node-wit": "^4.0.0",
+    "redis": "^2.6.2"
   },
   "ava": {
     "files": [
@@ -47,5 +48,8 @@
     "concurrency": 5,
     "failFast": true,
     "verbose": true
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.0"
   }
 }
